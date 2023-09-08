@@ -1,6 +1,14 @@
 const express = require('express');
+const cors = require('cors');
 const api = express();
 const port = 8080;
+
+api.use(cors());
+api.use(express.json());
+
+// const knex = require("knex")(
+//   require("./knexfile.js")[process.env.NODE_ENV || "development"]
+// );
 
 // Hard-coded movies for back-end testing.
 const movies = [

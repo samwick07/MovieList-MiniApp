@@ -33,15 +33,7 @@ function Copyright() {
 
 // const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-// Hard-coded movies for front-end testing.
-const movies = [
-  {title: 'Mean Girls'},
-  {title: 'Hackers'},
-  {title: 'The Grey'},
-  {title: 'Sunshine'},
-  {title: 'Ex Machina'},
-  {title: 'Inception'},
-];
+
 
 export const defaultTheme = createTheme({
   palette: {
@@ -56,6 +48,19 @@ export const defaultTheme = createTheme({
 });
 
 export default function Home() {
+  // // Hard-coded movies for front-end testing.
+  // const moviesData = [
+  //   {title: 'Mean Girls'},
+  //   {title: 'Hackers'},
+  //   {title: 'The Grey'},
+  //   {title: 'Sunshine'},
+  //   {title: 'Ex Machina'},
+  //   {title: 'Inception'},
+  // ];
+
+  // API fetch for Hard-coded back-end testing.
+  const { moviesData } = MoviesFetcher();
+
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
@@ -103,7 +108,7 @@ export default function Home() {
         <Container sx={{ py: 8 }} maxWidth="md">
           {/* End hero unit */}
           <Grid container spacing={4}>
-            {movies.map((card) => (
+            {moviesData.map((card) => (
               <Grid item key={card} xs={12} sm={6} md={4}>
                 <Card
                   sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
